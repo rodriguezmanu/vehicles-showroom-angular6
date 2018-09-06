@@ -1,0 +1,9 @@
+<div class="listing-container">
+  <h1>LISTING CARDS</h1>
+  <ul class="cars">
+      <li *ngFor="let item of vehicles"
+        routerLink="/listing/{{item.id}}">
+        <span class="badge">{{item.id}}</span> {{item.model}}
+      </li>
+    </ul>
+</div>

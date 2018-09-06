@@ -1,0 +1,36 @@
+<div class="main-container" fxLayout="column">
+    <!-- Toolbar Container -->
+    <mat-toolbar color="primary" class="toolbar-container">
+
+      <!-- Mobile button to open side nav -->
+      <button mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <!-- Title App -->
+      <h1 class="app-name" routerLink="/output">ShowRoom App</h1>
+
+      <!-- Menu desktop -->
+      <mat-nav-list fxLayout="row" fxLayoutAlign="end" fxHide fxShow.gt-sm>
+        <a mat-list-item routerLinkActive="active" routerLink="/listing">Listing</a>
+        <a mat-list-item routerLinkActive="active" routerLink="/comparative">Comparative</a>
+      </mat-nav-list>
+    </mat-toolbar>
+
+    <!-- Side Navigation container -->
+    <mat-sidenav-container class="sidenav-container">
+
+      <!-- Side Navigation for mobile -->
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <a mat-list-item routerLinkActive="active-mobile" routerLink="/listing">Listing</a>
+          <a mat-list-item routerLinkActive="active-mobile" routerLink="/comparative">Comparative</a>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <!-- Content placeholder router -->
+      <mat-sidenav-content fxLayout="row" fxLayoutAlign="center">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

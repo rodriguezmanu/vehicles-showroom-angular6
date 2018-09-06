@@ -1,0 +1,51 @@
+{
+  "cars": [{
+      "id": 1,
+      "photo": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/1-ferrari-812-superfast-2018-rt-hero-front.jpg",
+      "thumb": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/article_image_185/public/1-ferrari-812-superfast-2018-rt-hero-front.jpg",
+      "model": "812 Superfast",
+      "year": 2001,
+      "company": "Ferrari",
+      "price": 100000,
+      "motor": "6.8",
+      "interior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu.",
+      "exterior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu."
+    },
+    {
+      "id": 2,
+      "photo": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/1-mercedes-benz-cls-400d-review-hero-front.jpg",
+      "thumb": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/article_image_185/public/1-mercedes-benz-cls-400d-review-hero-front.jpg",
+      "model": "C 250",
+      "year": 2018,
+      "company": "Mercedes Benz",
+      "price": 1034200,
+      "motor": "4.8",
+      "interior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu.",
+      "exterior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu."
+    },
+    {
+      "id": 3,
+      "photo": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/cadillac-escalade.jpeg",
+      "thumb": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/article_image_185/public/cadillac-escalade.jpeg",
+      "model": "Escalade",
+      "year": 2015,
+      "company": "Cadillac",
+      "price": 200000,
+      "motor": "2.3",
+      "interior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu.",
+      "exterior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu."
+    },
+    {
+      "id": 4,
+      "photo": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/1-audi-a7-sportback-2018-rt-hero-front.jpg",
+      "thumb": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/article_image_185/public/1-audi-a7-sportback-2018-rt-hero-front.jpg",
+      "model": "A7 Sportback",
+      "year": 2016,
+      "company": "Audi",
+      "price": 100000,
+      "motor": "2.8",
+      "interior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu.",
+      "exterior": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu enim quam. Mauris tristique leo id arcu venenatis, et lobortis nulla convallis. Donec varius magna eget congue maximus. Sed fringilla diam urna, ut sollicitudin enim placerat at. Sed et eleifend elit. Praesent ullamcorper pellentesque quam et dictum. Quisque vitae sollicitudin sapien, nec pretium arcu."
+    }
+  ]
+}
