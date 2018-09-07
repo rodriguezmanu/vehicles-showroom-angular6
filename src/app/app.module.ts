@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -31,6 +32,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     AppMaterialModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     NgBusyModule
   ],
   providers: [VehiclesService],

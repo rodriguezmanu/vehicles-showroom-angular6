@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { VehiclesService } from '../../services/vehicles.service';
+import { Car } from './../../models/car';
 
 @Component({
   selector: 'comparative',
@@ -6,7 +9,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comparative.component.scss']
 })
 export class ComparativeComponent implements OnInit {
-  constructor() {}
+  formComparative: FormGroup;
+  vehicles: Car[];
+  selectedVehicles: Car[] = [];
 
-  ngOnInit() {}
+  constructor(
+    private vehiclesService: VehiclesService,
+    private formBuilder: FormBuilder
+  ) {
+    this.formComparative = formBuilder.group({
+      vehicles: ['', Validators.compose([Validators.maxLength(2)])]
+    });
+  }
+
+  ngOnInit() {
+    this.getVehicles();
+  }
+
+  /**
+   * Selection vehicle from select box
+   *
+   * @param {Object} vehicle
+   * @memberof ComparativeComponent
+   */
+  selectionVehicle(vehicle: Car): void {
+    if (this.formComparative.valid) {
+      this.selectedVehicles.push(vehicle);
+    }
+  }
+
+  /**
+   *
+   *
+   * @memberof ComparativeComponent
+   */
+  getVehicles(): void {
+    this.vehiclesService.getVehicles().subscribe(
+      response => {
+        this.vehicles = response;
+      },
+      (error: Response) => {
+        console.log('error');
+      }
+    );
+  }
 }

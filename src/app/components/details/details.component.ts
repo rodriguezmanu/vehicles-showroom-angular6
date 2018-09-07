@@ -10,15 +10,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  vehicle: Car;
+  busy: Subscription;
+  loading: boolean;
+
   constructor(
     private vehiclesService: VehiclesService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
-  vehicle: Car;
-  busy: Subscription;
-  loading: boolean;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -31,7 +31,7 @@ export class DetailsComponent implements OnInit {
    *
    * @memberof DetailsComponent
    */
-  onBusyStop() {
+  onBusyStop(): void {
     this.loading = true;
   }
 
@@ -40,7 +40,7 @@ export class DetailsComponent implements OnInit {
    *
    * @memberof DetailsComponent
    */
-  onBusyStart() {
+  onBusyStart(): void {
     this.loading = false;
   }
 
@@ -51,7 +51,7 @@ export class DetailsComponent implements OnInit {
    *
    * @memberof DetailsComponent
    */
-  getVehicle(id) {
+  getVehicle(id: string): void {
     this.busy = this.vehiclesService.getSingleVehicle(id).subscribe(
       response => {
         this.vehicle = response;

@@ -8,25 +8,27 @@ import { Car } from './../../models/car';
   styleUrls: ['./listing.component.scss']
 })
 export class ListingComponent implements OnInit {
-  constructor(private vehiclesService: VehiclesService) {}
-
   vehicles: Car[];
   searchText: string;
+
+  constructor(private vehiclesService: VehiclesService) {}
 
   ngOnInit() {
     this.getVehicles();
   }
 
-  getVehicles() {
+  /**
+   * Get vehicles
+   *
+   * @memberof ListingComponent
+   */
+  getVehicles(): void {
     this.vehiclesService.getVehicles().subscribe(
       response => {
         this.vehicles = response;
       },
       (error: Response) => {
         console.log('error');
-      },
-      () => {
-        console.log('finally');
       }
     );
   }

@@ -1,3 +1,18 @@
 <div class="comparative-container">
-  Comparative
+  <h1>Comparative</h1>
+  <form [formGroup]="formComparative">
+    <mat-form-field>
+        <mat-select placeholder="Select vehicles" formControlName="vehicles" multiple panelOpen>
+          <mat-option (onSelectionChange)="selectionVehicle(item)" *ngFor="let item of vehicles" [value]="item">{{item.model}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div *ngIf="formComparative.invalid" >
+      Yo have to select only 3
+    </div>
+    <ul class="cars">
+      <li *ngFor="let item of selectedVehicles">
+        <span class="badge">{{item.id}}</span> {{item.model}}
+      </li>
+    </ul>
+  </form>
 </div>
