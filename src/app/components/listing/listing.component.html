@@ -1,7 +1,8 @@
 <div class="listing-container">
   <h1>LISTING CARDS</h1>
+  <input [(ngModel)]="searchText" placeholder="search text goes here">
   <ul class="cars">
-      <li *ngFor="let item of vehicles"
+      <li *ngFor="let item of vehicles | filter : searchText"
         routerLink="/listing/{{item.id}}">
         <span class="badge">{{item.id}}</span> {{item.model}}
       </li>

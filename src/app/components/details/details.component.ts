@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
-import { ActivatedRoute } from '@angular/router';
-import { Car } from '../../models/Cars';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Car } from '../../models/car';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'details-cars',
@@ -11,10 +12,13 @@ import { Car } from '../../models/Cars';
 export class DetailsComponent implements OnInit {
   constructor(
     private vehiclesService: VehiclesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   vehicle: Car;
+  busy: Subscription;
+  loading: boolean;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -23,20 +27,37 @@ export class DetailsComponent implements OnInit {
   }
 
   /**
+   * on Busy End handler
+   *
+   * @memberof DetailsComponent
+   */
+  onBusyStop() {
+    this.loading = true;
+  }
+
+  /**
+   * on Busy Start handler
+   *
+   * @memberof DetailsComponent
+   */
+  onBusyStart() {
+    this.loading = false;
+  }
+
+  /**
    * Get vehicle
+   *
    * @param id
+   *
+   * @memberof DetailsComponent
    */
   getVehicle(id) {
-    this.vehiclesService.getSingleVehicle(id).subscribe(
+    this.busy = this.vehiclesService.getSingleVehicle(id).subscribe(
       response => {
         this.vehicle = response;
       },
       (error: Response) => {
-        console.log('error');
-        // cta listing
-      },
-      () => {
-        console.log('finally');
+        this.router.navigate(['/listing']);
       }
     );
   }

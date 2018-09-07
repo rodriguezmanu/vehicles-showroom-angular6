@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
-import { Car } from '../../models/Cars';
+import { Car } from './../../models/car';
 
 @Component({
   selector: 'listing',
@@ -11,6 +11,7 @@ export class ListingComponent implements OnInit {
   constructor(private vehiclesService: VehiclesService) {}
 
   vehicles: Car[];
+  searchText: string;
 
   ngOnInit() {
     this.getVehicles();

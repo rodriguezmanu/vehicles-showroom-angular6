@@ -1,14 +1,17 @@
 <div class="details-container">
-  <h1>DETAILS</h1>
-  <ul>
-    <li>
-      {{vehicle.id}}
-    </li>
-    <li>
-      {{vehicle.model}}
-    </li>
-    <li>
-      {{vehicle.price}}
-    </li>
-  </ul>
+  <div [ngBusy]="{busy: busy, message: 'Loading...', minDuration: 500}" (busyStop)="onBusyStop()" (busyStart)="onBusyStart()"></div>
+  <div *ngIf="loading">
+    <h1>DETAILS</h1>
+    <ul>
+      <li>
+        {{vehicle.id}}
+      </li>
+      <li>
+        {{vehicle.model}}
+      </li>
+      <li>
+        {{vehicle.price}}
+      </li>
+    </ul>
+  </div>
 </div>
