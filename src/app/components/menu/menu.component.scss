@@ -1,6 +1,42 @@
-// :host {
-//   min-height: 100%;
-//   display: flex;
-//   margin: 0;
-//   padding: 0;
-// }
+@import 'variables';
+
+.main-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .toolbar-container {
+    .app-name {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .mat-nav-list {
+      width: 100%;
+    }
+
+    .active {
+      color: $white;
+    }
+  }
+
+  .sidenav-container {
+    .mat-sidenav {
+      width: 50%;
+
+      .active-mobile {
+        color: $blue;
+      }
+    }
+  }
+
+  .sidenav-container {
+    flex: 1;
+  }
+
+  .mat-sidenav-content {
+    margin-top: 30px;
+  }
+}

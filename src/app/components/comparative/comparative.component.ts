@@ -4,7 +4,7 @@ import { VehiclesService } from '../../services/vehicles.service';
 import { Car } from './../../models/car';
 
 @Component({
-  selector: 'comparative',
+  selector: 'comparative-vehicles',
   templateUrl: './comparative.component.html',
   styleUrls: ['./comparative.component.scss']
 })
@@ -33,13 +33,11 @@ export class ComparativeComponent implements OnInit {
    * @memberof ComparativeComponent
    */
   selectionVehicle(vehicle: Car): void {
-    if (this.formComparative.valid) {
-      this.selectedVehicles.push(vehicle);
-    }
+    vehicle.selected = vehicle.selected ? !vehicle.selected : true;
   }
 
   /**
-   *
+   * Get Vehicles
    *
    * @memberof ComparativeComponent
    */

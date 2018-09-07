@@ -50,7 +50,8 @@ import {
     MatListModule,
     MatSelectModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
@@ -64,6 +65,7 @@ import {
     MatSelectModule,
     MatTableModule,
     CdkTableModule,
+    MatCardModule
   ],
   declarations: []
 })

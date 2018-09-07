@@ -1,1 +1,29 @@
+:host {
+  width: 100%;
 
+  .details-vehicle-container {
+    img {
+      max-width: 1000px;
+      min-height: 200px;
+    }
+
+    .mat-list .mat-list-item {
+      height: inherit;
+    }
+
+    .mat-card-header {
+      &>div {
+        margin: 50px 0;
+        font-size: 30px;
+      }
+    }
+
+    .mat-list-item {
+      margin: 30px;
+
+      span {
+        margin-left: 15px;
+      }
+    }
+  }
+}

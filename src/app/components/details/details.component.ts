@@ -5,7 +5,7 @@ import { Car } from '../../models/car';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'details-cars',
+  selector: 'vehicles-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })

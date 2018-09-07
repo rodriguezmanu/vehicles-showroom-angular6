@@ -9,4 +9,5 @@ export interface Car {
   motor: number;
   interior: string;
   exterior: string;
+  selected: boolean;
 }

@@ -3,7 +3,7 @@ import { VehiclesService } from '../../services/vehicles.service';
 import { Car } from './../../models/car';
 
 @Component({
-  selector: 'listing',
+  selector: 'vehicles-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.scss']
 })

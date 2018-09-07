@@ -30,7 +30,12 @@
               "src/styles.sass",
               "node_modules/ng-busy/src/style/busy.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/scss"
+              ]
+            }
           },
           "configurations": {
             "production": {

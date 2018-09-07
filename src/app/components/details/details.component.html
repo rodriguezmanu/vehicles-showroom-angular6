@@ -1,17 +1,64 @@
-<div class="details-container">
+<div class="details-vehicle-container section" fxLayout="column">
+  <!-- Spinner loading -->
   <div [ngBusy]="{busy: busy, message: 'Loading...', minDuration: 500}" (busyStop)="onBusyStop()" (busyStart)="onBusyStart()"></div>
-  <div *ngIf="loading">
-    <h1>DETAILS</h1>
-    <ul>
-      <li>
-        {{vehicle.id}}
-      </li>
-      <li>
-        {{vehicle.model}}
-      </li>
-      <li>
-        {{vehicle.price}}
-      </li>
-    </ul>
+  <!-- Header container -->
+  <div class="header-container" fxLayout="column" fxFlexAlign="center">
+    <!-- Title -->
+    <div class="title-container">
+        <h1>DETAILS VEHICLES</h1>
+    </div>
+  </div>
+
+  <!-- Vehicle container -->
+  <div class="vehicle-container" fxLayout="row wrap" *ngIf="loading">
+    <mat-card class="card-container">
+      <!-- Header -->
+      <mat-card-header fxLayout fxLayoutAlign="center">
+        <div>{{vehicle.company + ' - ' + vehicle.model}}</div>
+      </mat-card-header>
+      <!-- Image -->
+      <div fxLayout fxLayoutAlign="center">
+        <img mat-card-image [src]="vehicle.photo" alt="image">
+      </div>
+      <!-- Content -->
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <b>Price:</b>
+            <span>
+              ${{vehicle.price}}
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <b>Year:</b>
+            <span>
+              {{vehicle.year}}
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <b>Motor:</b>
+            <span>
+              {{vehicle.motor}}
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <b>Interior: </b>
+            <span>
+              {{vehicle.interior}}
+            </span>
+          </mat-list-item>
+          <mat-list-item>
+            <b>Exterior: </b>
+            <span>
+              {{vehicle.exterior}}
+            </span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+      <!-- Actions -->
+      <mat-card-actions>
+        <button mat-button routerLink="/listing/">Back to listing</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
