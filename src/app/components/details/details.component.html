@@ -1,6 +1,7 @@
 <div class="details-vehicle-container section" fxLayout="column">
   <!-- Spinner loading -->
   <div [ngBusy]="{busy: busy, message: 'Loading...', minDuration: 500}" (busyStop)="onBusyStop()" (busyStart)="onBusyStart()"></div>
+
   <!-- Header container -->
   <div class="header-container" fxLayout="column" fxFlexAlign="center">
     <!-- Title -->

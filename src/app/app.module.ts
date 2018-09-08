@@ -17,6 +17,7 @@ import { ComparativeComponent } from './components/comparative/comparative.compo
 
 import { VehiclesService } from './services/vehicles.service';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ListingVehiclesComponent } from './components/listing-vehicles/listing-vehicles.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ListingComponent,
     DetailsComponent,
     ComparativeComponent,
-    FilterPipe
+    FilterPipe,
+    ListingVehiclesComponent
   ],
   imports: [
     BrowserModule,

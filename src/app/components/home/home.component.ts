@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
-import { Car, Brand } from '../../models/vehicle';
+import { Brand } from '../../models/vehicle';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
@@ -13,7 +13,7 @@ import { FormControl } from '@angular/forms';
 export class HomeComponent implements OnInit {
   vehicles: Brand[];
   searchText: string;
-  filteredVehicles: Observable<any[]>;
+  filteredVehicles: Observable<Brand[]>;
   brandCtrl = new FormControl();
 
   constructor(private vehiclesService: VehiclesService) {}
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
    * Filter brands search box
    *
    * @param {string} value
-   * @returns {any[]}
+   * @returns {Brand[]}
    * @memberof HomeComponent
    */
   filterBrands(value: string): Brand[] {

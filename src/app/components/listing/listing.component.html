@@ -13,28 +13,6 @@
         </button>
       </mat-form-field>
   </div>
-
-  <!-- Vehicles container -->
-  <div class="vehicles-container" fxLayout="row wrap" fxLayoutGap="40px">
-    <mat-card class="card-container" *ngFor="let item of vehicles | filter : searchText">
-      <!-- Header -->
-      <mat-card-header>
-        <h2>{{item.company + ' - ' + item.model}}</h2>
-      </mat-card-header>
-      <!-- Image -->
-      <img mat-card-image [src]="item.thumb" alt="image">
-      <!-- Content -->
-      <mat-card-content>
-        <mat-list>
-            <mat-list-item> <b>Price:</b> ${{item.price}} </mat-list-item>
-            <mat-list-item> <b>Year: </b>{{item.year}} </mat-list-item>
-            <mat-list-item> <b>Motor: </b>{{item.motor}} </mat-list-item>
-            </mat-list>
-      </mat-card-content>
-      <!-- Actions -->
-      <mat-card-actions>
-        <button mat-button routerLink="vehicle/{{item.id}}">MORE INFO</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+  <!-- Listing vehicles -->
+  <app-listing-vehicles [vehicles]="vehicles" [textFilter]="searchText" alignLayout="start"></app-listing-vehicles>
 </div>
