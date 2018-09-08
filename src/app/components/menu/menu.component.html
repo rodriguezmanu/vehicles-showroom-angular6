@@ -8,11 +8,11 @@
       </button>
 
       <!-- Title App -->
-      <h1 class="app-name" routerLink="/output">ShowRoom App</h1>
+      <h1 class="app-name" routerLink="/">ShowRoom App</h1>
 
       <!-- Menu desktop -->
       <mat-nav-list fxLayout="row" fxLayoutAlign="end" fxHide fxShow.gt-sm>
-        <a mat-list-item routerLinkActive="active" routerLink="/listing">Listing</a>
+        <a mat-list-item routerLinkActive="active" routerLink="/">Listing</a>
         <a mat-list-item routerLinkActive="active" routerLink="/comparative">Comparative</a>
       </mat-nav-list>
     </mat-toolbar>
@@ -23,7 +23,7 @@
       <!-- Side Navigation for mobile -->
       <mat-sidenav #sidenav>
         <mat-nav-list>
-          <a mat-list-item routerLinkActive="active-mobile" routerLink="/listing">Listing</a>
+          <a mat-list-item routerLinkActive="active-mobile" routerLink="/">Listing</a>
           <a mat-list-item routerLinkActive="active-mobile" routerLink="/comparative">Comparative</a>
         </mat-nav-list>
       </mat-sidenav>

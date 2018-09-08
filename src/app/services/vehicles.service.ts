@@ -18,21 +18,34 @@ export class VehiclesService {
    * @memberof VehiclesService
    */
   getVehicles(): Observable<Car[]> {
-    return this.http.get(environment.api + API.CARS.GET_ALL).pipe(
-      map((res: Response) => {
-        return _.sortBy(res, ['company']);
-      })
-    );
+    return this.http
+      .get(environment.api + API.CARS.GET_ALL)
+      .pipe(map((res: Response) => _.sortBy(res, ['brand'])));
+  }
+
+  /**
+   * Get Vehicles
+   *
+   * @returns {Observable<Car[]>}
+   * @memberof VehiclesService
+   */
+  getBrandVehicles(id: string): Observable<Car[]> {
+    return this.http.get<Car>(environment.api + API.CARS.GET_ALL + id);
   }
 
   /**
    * Get single Vehicle
    *
-   * @param {number} id
+   * @param {String} idBrand
+   * @param {String} idVehicle
    * @returns {Observable<Car>}
    * @memberof VehiclesService
    */
-  getSingleVehicle(id): Observable<Car> {
-    return this.http.get<Car>(environment.api + API.CARS.GET_SINGLE + id);
+  getSingleVehicle(idBrand: string, idVehicle: string): Observable<Car> {
+    return this.http
+      .get<Car>(environment.api + API.CARS.GET_SINGLE + idBrand)
+      .pipe(
+        map((res: Response) => res.vehicles.find(item => item.id == idVehicle))
+      );
   }
 }

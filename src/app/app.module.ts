@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppMaterialModule } from './modules/app-material/app-material.module';
 import { NgBusyModule } from 'ng-busy';
 
+import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { DetailsComponent } from './components/details/details.component';
@@ -19,6 +20,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
+    HomeComponent,
     MenuComponent,
     ListingComponent,
     DetailsComponent,

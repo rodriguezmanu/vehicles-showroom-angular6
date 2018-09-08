@@ -1,0 +1,25 @@
+<div class="home-container section" fxLayout="column">
+    <!-- Header container -->
+    <div class="header-container" fxLayout="column" fxFlexAlign="center">
+      <!-- Title -->
+      <div class="title-container">
+          <h1>HOME VEHICLES</h1>
+      </div>
+      <!-- Search Brand vehicles -->
+      <div>
+        <form class="form-brand">
+            <mat-form-field class="form-field-brand">
+              <input matInput placeholder="Enter brand" [matAutocomplete]="auto" [formControl]="brandCtrl">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let vehicle of filteredVehicles | async"
+                  [value]="vehicle.brand"
+                  routerLink="brand/{{vehicle.id}}">
+                    <span>{{vehicle.brand}}</span>
+                    <img class="brand-img" aria-hidden [src]="vehicle.photo" height="30">
+                  </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+      </div>
+    </div>
+</div>

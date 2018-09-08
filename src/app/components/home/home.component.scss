@@ -1,0 +1,19 @@
+:host {
+  width: 100%;
+
+  .home-container {
+    .form-field-brand {
+      width: 100%;
+    }
+
+    .brand-image {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    [dir='rtl'] .brand-image {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+  }
+}

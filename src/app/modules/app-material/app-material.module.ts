@@ -51,7 +51,8 @@ import {
     MatSelectModule,
     MatTableModule,
     CdkTableModule,
-    MatCardModule
+    MatCardModule,
+    MatAutocompleteModule
   ],
   exports: [
     MatButtonModule,
@@ -65,7 +66,8 @@ import {
     MatSelectModule,
     MatTableModule,
     CdkTableModule,
-    MatCardModule
+    MatCardModule,
+    MatAutocompleteModule
   ],
   declarations: []
 })

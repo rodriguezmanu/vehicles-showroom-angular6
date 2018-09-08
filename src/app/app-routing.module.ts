@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ComparativeComponent } from './components/comparative/comparative.component';
 
 const routes: Routes = [
   {
-    path: 'listing',
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'brand/:brand',
     component: ListingComponent
   },
   {
-    path: 'listing/:id',
+    path: 'brand/:brand/vehicle/:id',
     component: DetailsComponent
   },
   {
@@ -19,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/listing',
+    redirectTo: '/',
     pathMatch: 'full'
   }
 ];

@@ -21,9 +21,7 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    this.getVehicle(id);
+    this.getVehicle();
   }
 
   /**
@@ -47,18 +45,31 @@ export class DetailsComponent implements OnInit {
   /**
    * Get vehicle
    *
-   * @param id
+   * @memberof DetailsComponent
+   */
+  getVehicle(): void {
+    const idBrand = this.route.snapshot.paramMap.get('brand');
+    const idVehicle = this.route.snapshot.paramMap.get('id');
+
+    this.busy = this.vehiclesService
+      .getSingleVehicle(idBrand, idVehicle)
+      .subscribe(
+        response => {
+          this.vehicle = response;
+        },
+        (error: Response) => {
+          console.log('error');
+        }
+      );
+  }
+
+  /**
+   * Go to listing brand page
    *
    * @memberof DetailsComponent
    */
-  getVehicle(id: string): void {
-    this.busy = this.vehiclesService.getSingleVehicle(id).subscribe(
-      response => {
-        this.vehicle = response;
-      },
-      (error: Response) => {
-        this.router.navigate(['/listing']);
-      }
-    );
+  gotoListingBrand(): void {
+    const id = this.route.snapshot.paramMap.get('brand');
+    this.router.navigate(['/brand', id]);
   }
 }

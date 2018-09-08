@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
+import { ActivatedRoute } from '@angular/router';
 import { Car } from './../../models/car';
 
 @Component({
@@ -11,7 +12,10 @@ export class ListingComponent implements OnInit {
   vehicles: Car[];
   searchText: string;
 
-  constructor(private vehiclesService: VehiclesService) {}
+  constructor(
+    private vehiclesService: VehiclesService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getVehicles();
@@ -23,9 +27,10 @@ export class ListingComponent implements OnInit {
    * @memberof ListingComponent
    */
   getVehicles(): void {
-    this.vehiclesService.getVehicles().subscribe(
+    const id = this.route.snapshot.paramMap.get('brand');
+    this.vehiclesService.getBrandVehicles(id).subscribe(
       response => {
-        this.vehicles = response;
+        this.vehicles = response.vehicles;
       },
       (error: Response) => {
         console.log('error');
