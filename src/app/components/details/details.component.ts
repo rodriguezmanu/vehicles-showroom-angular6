@@ -3,6 +3,7 @@ import { VehiclesService } from '../../services/vehicles.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from '../../models/vehicle';
 import { Subscription } from 'rxjs';
+import { ToastrsService } from '../../services/toastr.service';
 
 @Component({
   selector: 'vehicles-details',
@@ -17,7 +18,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private vehiclesService: VehiclesService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrsService
   ) {}
 
   ngOnInit() {
@@ -58,7 +60,7 @@ export class DetailsComponent implements OnInit {
           this.vehicle = response;
         },
         (error: Response) => {
-          console.log('error');
+          this.toastrService.showError(error);
         }
       );
   }

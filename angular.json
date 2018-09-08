@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.sass",
-              "node_modules/ng-busy/src/style/busy.css"
+              "node_modules/ng-busy/src/style/busy.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
             "stylePreprocessorOptions": {

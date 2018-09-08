@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { VehiclesService } from '../../services/vehicles.service';
 import { Car, Brand } from '../../models/vehicle';
+import { ToastrsService } from '../../services/toastr.service';
 
 @Component({
   selector: 'comparative-vehicles',
@@ -15,7 +16,8 @@ export class ComparativeComponent implements OnInit {
 
   constructor(
     private vehiclesService: VehiclesService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastrService: ToastrsService
   ) {
     this.formComparative = formBuilder.group({
       vehicles: ['', Validators.compose([Validators.maxLength(2)])]
@@ -47,7 +49,7 @@ export class ComparativeComponent implements OnInit {
         this.allVehicles = response;
       },
       (error: Response) => {
-        console.log('error');
+        this.toastrService.showError(error);
       }
     );
   }

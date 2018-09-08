@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from '../../models/vehicle';
+import { ToastrsService } from '../../services/toastr.service';
 
 @Component({
   selector: 'vehicles-listing',
@@ -14,7 +15,8 @@ export class ListingComponent implements OnInit {
 
   constructor(
     private vehiclesService: VehiclesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastrService: ToastrsService
   ) {}
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class ListingComponent implements OnInit {
         this.vehicles = response;
       },
       (error: Response) => {
-        console.log('error');
+        this.toastrService.showError(error);
       }
     );
   }

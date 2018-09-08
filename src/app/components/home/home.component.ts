@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
+import { ToastrsService } from '../../services/toastr.service';
 import { Brand } from '../../models/vehicle';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -16,7 +17,10 @@ export class HomeComponent implements OnInit {
   filteredVehicles: Observable<Brand[]>;
   brandCtrl = new FormControl();
 
-  constructor(private vehiclesService: VehiclesService) {}
+  constructor(
+    private vehiclesService: VehiclesService,
+    private toastrService: ToastrsService
+  ) {}
 
   ngOnInit() {
     this.getVehicles();
@@ -34,7 +38,7 @@ export class HomeComponent implements OnInit {
         this.getFilteredVehicles();
       },
       (error: Response) => {
-        console.log('error');
+        this.toastrService.showError(error);
       }
     );
   }
