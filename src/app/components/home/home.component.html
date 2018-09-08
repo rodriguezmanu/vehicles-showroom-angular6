@@ -8,7 +8,7 @@
       <!-- Search Brand vehicles -->
       <div>
         <form class="form-brand">
-            <mat-form-field class="form-field-brand">
+            <mat-form-field class="form-field">
               <input matInput placeholder="Enter brand" [matAutocomplete]="auto" [formControl]="brandCtrl">
               <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let vehicle of filteredVehicles | async"

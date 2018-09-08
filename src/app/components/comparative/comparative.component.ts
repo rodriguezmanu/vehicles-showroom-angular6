@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { VehiclesService } from '../../services/vehicles.service';
-import { Car } from './../../models/car';
+import { Car, Brand } from '../../models/vehicle';
 
 @Component({
   selector: 'comparative-vehicles',
@@ -10,8 +10,8 @@ import { Car } from './../../models/car';
 })
 export class ComparativeComponent implements OnInit {
   formComparative: FormGroup;
-  vehicles: Car[];
-  selectedVehicles: Car[] = [];
+  allVehicles: Brand[];
+  selectedVehicles: Brand[] = [];
 
   constructor(
     private vehiclesService: VehiclesService,
@@ -43,8 +43,8 @@ export class ComparativeComponent implements OnInit {
    */
   getVehicles(): void {
     this.vehiclesService.getVehicles().subscribe(
-      response => {
-        this.vehicles = response;
+      (response: Brand[]) => {
+        this.allVehicles = response;
       },
       (error: Response) => {
         console.log('error');

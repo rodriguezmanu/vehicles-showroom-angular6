@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Car } from '../../models/car';
+import { Car } from '../../models/vehicle';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -54,7 +54,7 @@ export class DetailsComponent implements OnInit {
     this.busy = this.vehiclesService
       .getSingleVehicle(idBrand, idVehicle)
       .subscribe(
-        response => {
+        (response: Car) => {
           this.vehicle = response;
         },
         (error: Response) => {
@@ -70,6 +70,7 @@ export class DetailsComponent implements OnInit {
    */
   gotoListingBrand(): void {
     const id = this.route.snapshot.paramMap.get('brand');
+
     this.router.navigate(['/brand', id]);
   }
 }

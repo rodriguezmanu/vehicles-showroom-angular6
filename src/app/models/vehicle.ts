@@ -9,5 +9,12 @@ export interface Car {
   motor: number;
   interior: string;
   exterior: string;
-  selected: boolean;
+  selected?: boolean;
+}
+
+export interface Brand {
+  id: number;
+  brand: string;
+  photo: string;
+  vehicles: Car[];
 }

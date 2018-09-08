@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from './../../models/car';
+import { Car } from '../../models/vehicle';
 
 @Component({
   selector: 'vehicles-listing',
@@ -18,7 +18,7 @@ export class ListingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getVehicles();
+    this.getVehiclesByBrand();
   }
 
   /**
@@ -26,11 +26,12 @@ export class ListingComponent implements OnInit {
    *
    * @memberof ListingComponent
    */
-  getVehicles(): void {
+  getVehiclesByBrand(): void {
     const id = this.route.snapshot.paramMap.get('brand');
+
     this.vehiclesService.getBrandVehicles(id).subscribe(
-      response => {
-        this.vehicles = response.vehicles;
+      (response: Car[]) => {
+        this.vehicles = response;
       },
       (error: Response) => {
         console.log('error');

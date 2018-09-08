@@ -9,10 +9,6 @@
   margin-top: 20px;
 }
 
-.content-container {
-  margin: 0 30px;
-}
-
 .section {
   padding-bottom: 50px;
 }
@@ -24,6 +20,10 @@
 
 .title-container {
   font-size: 20px;
+}
+
+.form-field {
+  width: 100%;
 }
 
 @media only screen and (max-width: 480px) {

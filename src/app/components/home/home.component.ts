@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiclesService } from '../../services/vehicles.service';
-import { Car } from './../../models/car';
+import { Car, Brand } from '../../models/vehicle';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  vehicles: Car[];
+  vehicles: Brand[];
   searchText: string;
   filteredVehicles: Observable<any[]>;
   brandCtrl = new FormControl();
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
    */
   getVehicles(): void {
     this.vehiclesService.getVehicles().subscribe(
-      response => {
+      (response: Brand[]) => {
         this.vehicles = response;
         this.getFilteredVehicles();
       },
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
    * @returns {any[]}
    * @memberof HomeComponent
    */
-  filterBrands(value: string): any[] {
+  filterBrands(value: string): Brand[] {
     const filterValue = value.toLowerCase();
 
     return this.vehicles.filter(

@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Car } from '../models/car';
+import { Car, Brand } from '../models/vehicle';
 
 @Injectable()
 export class VehiclesService {
@@ -14,12 +14,12 @@ export class VehiclesService {
   /**
    * Get Vehicles
    *
-   * @returns {Observable<Car[]>}
+   * @returns {Observable<Brand[]>}
    * @memberof VehiclesService
    */
-  getVehicles(): Observable<Car[]> {
+  getVehicles(): Observable<Brand[]> {
     return this.http
-      .get(environment.api + API.CARS.GET_ALL)
+      .get<Brand[]>(environment.api + API.CARS.GET_ALL)
       .pipe(map((res: Response) => _.sortBy(res, ['brand'])));
   }
 
@@ -30,7 +30,9 @@ export class VehiclesService {
    * @memberof VehiclesService
    */
   getBrandVehicles(id: string): Observable<Car[]> {
-    return this.http.get<Car>(environment.api + API.CARS.GET_ALL + id);
+    return this.http
+      .get<Car[]>(environment.api + API.CARS.GET_ALL + id)
+      .pipe(map((res: Brand) => res.vehicles));
   }
 
   /**
@@ -45,7 +47,9 @@ export class VehiclesService {
     return this.http
       .get<Car>(environment.api + API.CARS.GET_SINGLE + idBrand)
       .pipe(
-        map((res: Response) => res.vehicles.find(item => item.id == idVehicle))
+        map((res: Brand) =>
+          res.vehicles.find(item => item.id === Number(idVehicle))
+        )
       );
   }
 }

@@ -12,7 +12,7 @@
 
       <!-- Menu desktop -->
       <mat-nav-list fxLayout="row" fxLayoutAlign="end" fxHide fxShow.gt-sm>
-        <a mat-list-item routerLinkActive="active" routerLink="/">Listing</a>
+        <a mat-list-item routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Home</a>
         <a mat-list-item routerLinkActive="active" routerLink="/comparative">Comparative</a>
       </mat-nav-list>
     </mat-toolbar>
@@ -29,7 +29,7 @@
       </mat-sidenav>
 
       <!-- Content placeholder router -->
-      <mat-sidenav-content fxLayout="row" class="content-container">
+      <mat-sidenav-content class="content-container">
         <router-outlet></router-outlet>
       </mat-sidenav-content>
     </mat-sidenav-container>
